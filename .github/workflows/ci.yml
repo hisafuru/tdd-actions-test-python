@@ -1,20 +1,14 @@
 name: Python CI
 
-# このワークフローが実行されるトリガー
 on:
   pull_request:
     branches:
-      - main  # PRの対象ブランチを指定
+      - main  # PRの対象ブランチ
 
 jobs:
   test:
     name: Run Python Tests and Lint
     runs-on: ubuntu-latest  # ジョブが実行される環境
-
-    # 複数のPythonバージョンでテストを実行する例
-    strategy:
-      matrix:
-        python-version: [3.8, 3.9, 3.10]
 
     steps:
     # 1. GitHubリポジトリのコードをチェックアウト
@@ -25,7 +19,7 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
-        python-version: ${{ matrix.python-version }}
+        python-version: 3.9  # Pythonバージョンを3.9に固定
 
     # 3. 必要な依存関係をインストール
     - name: Install dependencies

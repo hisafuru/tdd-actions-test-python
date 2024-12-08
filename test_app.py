@@ -1,4 +1,3 @@
-import pytest
 from app import double_number
 
 def test_double_number():
